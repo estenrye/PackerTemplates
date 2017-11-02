@@ -1,0 +1,1 @@
+git clone https://github.com/cloudbase/powershell-yaml.git "$PSScriptRoot\..\bin\powershell-yaml"

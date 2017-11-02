@@ -1,0 +1,51 @@
+{
+	"builders": [
+		{
+			"type": "hyperv-iso",
+			"output_directory": "./output-{{ user `os_name` }}-base-hyperv/",
+			"vm_name": "{{ user `os_name` }}-base",
+			"iso_url": "{{ user `iso_url` }}",
+			"iso_checksum": "{{ user `iso_checksum` }}",
+			"iso_checksum_type": "sha1",
+			"communicator": "winrm",
+			"winrm_username": "vagrant",
+			"winrm_password": "vagrant",
+			"winrm_timeout": "12h",
+			"shutdown_command": "C:/Windows/packer/PackerShutdown.bat",
+			"shutdown_timeout": "1h",
+			"floppy_files": [
+				"answer_files/{{ user `os_name` }}/Autounattend.xml",
+				"floppy/winrm.ps1"
+			],
+			"cpu": 1,
+			"disk_size": 81920,
+			"ram_size": 4096,
+			"generation": 1,
+			"boot_wait": "0s",
+			"boot_command": [
+				"a<wait>a<wait>a"
+			]
+		}
+	],
+	"provisioners": [
+		{
+			"type": "powershell",
+			"script": "scripts/save_shutdown_command.ps1"
+		}
+	],
+	"post-processors": [
+		[
+			{
+				"type": "vagrant",
+				"keep_input_artifact": false,
+				"output": "{{user `os_name`}}-wmf5-nocm-{{.Provider}}.box",
+				"vagrantfile_template": "vagrantfile-windows.template"
+			}
+		]
+	],
+	"variables": {
+		"os_name": "",
+		"iso_checksum": "",
+		"iso_url": ""
+	}
+}
