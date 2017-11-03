@@ -43,5 +43,5 @@ Start-Process -FilePath "$BIN_DIR\packer\packer.exe" -Wait -NoNewWindow -Argumen
 	"iso_checksum=$($os.isoChecksum)",
 	"-var",
 	"iso_url=$($os.isoURL)",
-	'-debug',
+	# '-debug',
 	"$PSScriptRoot\$($os.BuildPath)")
