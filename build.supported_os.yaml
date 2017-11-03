@@ -2,5 +2,5 @@
 - Name: WindowsServer2016StdCore-BaseInstall
   osName: win2016stdcore
   isoChecksum: 9b901a2ce6a8e126496efb0d2440c0187fe614b8
-  isoURL: \\storage\temp\Users\esten.rye\isos\en_windows_server_version_1709_x64_dvd_100090904.iso
+  isoURL: ////storage/temp/Users/esten.rye/isos/en_windows_server_version_1709_x64_dvd_100090904.iso
   BuildPath: builders\hyper-v\01-windows-local.json
