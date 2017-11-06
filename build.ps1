@@ -35,6 +35,23 @@ Write-Output "'os_name=$($os.osName)'"
 Write-Output "'iso_checksum=$($os.isoChecksum)'"
 Write-Output "'iso_url=$($os.isoURL)'"
 Write-Output "$PSScriptRoot\$($os.BuildPath)"
+$env:TMP = "$PSScriptRoot\temp"
+$env:PACKER_CACHE_DIR = "$PSScriptRoot\cache"
+$env:PACKER_LOG = 1
+$env:PACKER_LOG_PATH = "$PSScriptRoot\logs"
+
+if (-not (Test-Path $env:TMP))
+{
+	New-Item -ItemType Directory $env:TMP
+}
+if (-not (Test-Path $env:PACKER_CACHE_DIR))
+{
+	New-Item -ItemType Directory $env:PACKER_CACHE_DIR
+}
+if (-not (Test-Path $env:PACKER_LOG_PATH))
+{
+	New-Item -ItemType Directory $env:PACKER_LOG_PATH
+}
 Start-Process -FilePath "$BIN_DIR\packer\packer.exe" -Wait -NoNewWindow -ArgumentList @(
 	"build",
 	"-var",

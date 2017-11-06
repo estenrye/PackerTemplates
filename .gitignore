@@ -5,3 +5,6 @@ tools/*
 packages/*
 .fake/*
 bin
+cache
+logs
+temp

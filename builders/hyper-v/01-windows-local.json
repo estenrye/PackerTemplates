@@ -39,7 +39,7 @@
 			{
 				"type": "vagrant",
 				"keep_input_artifact": false,
-				"output": "{{user `os_name`}}-wmf5-nocm-{{.Provider}}.box",
+				"output": "./box-files/{{user `os_name`}}-wmf5-nocm-{{.Provider}}.box",
 				"vagrantfile_template": "vagrantfile-windows.template"
 			}
 		]
