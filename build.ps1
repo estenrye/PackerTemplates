@@ -16,10 +16,7 @@ if (-not (Test-Path $BIN_DIR))
 	New-Item -ItemType Directory $BIN_DIR
 }
 
-if (-not (Test-Path "$BIN_DIR\packer\packer.exe"))
-{
-	& "$SCRIPTS_DIR\getPacker.ps1"
-}
+& "$SCRIPTS_DIR\getPacker.ps1"
 
 if (-not (Test-Path "$BIN_DIR\powershell-yaml"))
 {
@@ -36,9 +33,9 @@ Write-Output "'iso_checksum=$($os.isoChecksum)'"
 Write-Output "'iso_url=$($os.isoURL)'"
 Write-Output "$PSScriptRoot\$($os.BuildPath)"
 $env:TMP = "$PSScriptRoot\temp"
-$env:PACKER_CACHE_DIR = "$PSScriptRoot\cache"
+$env:PACKER_CACHE_DIR = "$PSScriptRoot\packer-cache"
 $env:PACKER_LOG = 1
-$env:PACKER_LOG_PATH = "$PSScriptRoot\logs"
+$env:PACKER_LOG_PATH = "$PSScriptRoot\packer.log"
 
 if (-not (Test-Path $env:TMP))
 {
