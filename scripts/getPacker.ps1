@@ -4,5 +4,5 @@ if (-not (Test-Path "$PSScriptRoot\..\bin\packer"))
 {
 	New-Item -ItemType Directory "$PSScriptRoot\..\bin\packer"
 }
-Expand-Archive -Path "$PSScriptRoot\..\bin\packer.zip" -OutputPath "$PSScriptRoot\..\bin\packer"
+Expand-Archive -Path "$PSScriptRoot\..\bin\packer.zip" -DestinationPath "$PSScriptRoot\..\bin\packer"
 Remove-Item "$PSScriptRoot\..\bin\packer.zip"

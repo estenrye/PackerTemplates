@@ -16,7 +16,7 @@ if (-not (Test-Path $BIN_DIR))
 	New-Item -ItemType Directory $BIN_DIR
 }
 
-if (-not (Test-Path "$BIN_DIR\packer"))
+if (-not (Test-Path "$BIN_DIR\packer\packer.exe"))
 {
 	& "$SCRIPTS_DIR\getPacker.ps1"
 }
@@ -47,10 +47,6 @@ if (-not (Test-Path $env:TMP))
 if (-not (Test-Path $env:PACKER_CACHE_DIR))
 {
 	New-Item -ItemType Directory $env:PACKER_CACHE_DIR
-}
-if (-not (Test-Path $env:PACKER_LOG_PATH))
-{
-	New-Item -ItemType Directory $env:PACKER_LOG_PATH
 }
 Start-Process -FilePath "$BIN_DIR\packer\packer.exe" -Wait -NoNewWindow -ArgumentList @(
 	"build",

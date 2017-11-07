@@ -13,7 +13,7 @@
 			"winrm_timeout": "12h",
 			"shutdown_command": "C:/Windows/packer/PackerShutdown.bat",
 			"shutdown_timeout": "1h",
-			"temp_path": "D:/Temp",
+			"temp_path": "./temp",
 			"floppy_files": [
 				"answer_files/{{ user `os_name` }}/Autounattend.xml",
 				"floppy/winrm.ps1"

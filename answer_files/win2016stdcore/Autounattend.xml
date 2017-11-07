@@ -91,7 +91,7 @@
                     <LocalAccount wcm:action="add">
                         <Password>
                             <Value>vagrant</Value>
-                            <PlainText>false</PlainText>
+                            <PlainText>true</PlainText>
                         </Password>
                         <Name>vagrant</Name>
                         <Group>Administrators</Group>
